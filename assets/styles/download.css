@@ -1,0 +1,176 @@
+/*
+
+White - #f1ebf5
+Light pink - #f172a1
+Pink - #e64298
+Light purple - #b29bc7
+Purple - #ad2e95
+Blue - #a2c0da
+
+*/
+
+.header__user {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.main {
+    min-height: 100vh;
+
+    background-size: cover;
+}
+
+.download {
+    height: 100%;
+}
+
+.download__container {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 15px;
+    height: 100%;
+}
+
+.download__logo {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 10px;
+    background-color: #af7ac4;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    overflow: hidden;
+}
+
+.download__wrapper {
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    position: relative;
+
+    padding: 10px;
+    min-width: 600px;
+    height: 600px;
+
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.download__list {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+}
+
+.download__info {
+    margin-bottom: 15px;
+}
+
+.download__logo:hover > .download__change-wrapper {
+    display: flex;
+}
+
+.download__change {
+    font-size: 22px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.download__change:hover {
+    cursor: pointer;
+}
+
+.download__menu {
+    height: 100%;
+}
+
+.download__icon {
+    height: 100%;
+}
+
+.button2 {
+    display: inline-block;
+
+    padding: 10px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+
+    line-height: 1;
+    font-size: 22px;
+    font-weight: 800;
+    color: #af7ac4;
+
+    transition: color .1s linear;
+}
+
+.button2:hover {
+    color: #9b59b6;
+    cursor: pointer;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+
+    border-radius: 10px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+
+    line-height: 1;
+    font-size: 20px;
+    font-weight: 800;
+    color: #f1c40f;
+
+    transition: color .1s linear;
+}
+
+.input:hover, .input:focus {
+    color: #f1c40f;
+    cursor: text;
+}
+
+.input:hover::placeholder,
+.input:focus::placeholder {
+    color: #f1c40f;
+    cursor: text;
+}
+
+.input::placeholder {
+    color: #f1c40f;
+}
+
+@media (max-width: 1000px) {
+    .download__container {
+        flex-direction: column;
+    }
+    .download__wrapper {
+        min-width: 290px;
+        height: 360px;
+        margin-bottom: 15px;
+    }
+    .download__list {
+        margin-left: 0;
+    }
+
+    .download__container {
+        padding-right: 30px;
+    }
+
+    
+}

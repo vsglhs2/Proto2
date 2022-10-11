@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Audio List</title>
+    <meta name="referrer" content="no-referrer">
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/index.css">
+    <link rel="stylesheet" href="/assets/styles/library.css">
+    <link rel="stylesheet" href="/assets/styles/message.css">
+    <link rel="stylesheet" href="/assets/styles/download.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+    
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="wrapper">
+                <h1 class="header__title"><a href="index.html">My Cloud Player</a></h1>
+                <h1 class="header__stitle"><a href="index.html">MCP</a></h1>                
+            </div>
+            <nav class="nav wrapper">
+                <a href="index.html" class="nav__link">
+                    <img class="icon  icon--wh40  nav__icon" src="/assets/images/icons/main.svg" alt="">
+                    <h2 class="nav__text">Любимое</h2>
+                </a>
+                <span class="nav__link" id="searchButton">
+                    <img class="icon  icon--wh40  nav__icon" src="/assets/images/icons/search.svg" alt="">
+                    <h2 class="nav__text">Поиск</h2>
+                    <div class="search" id="search">
+                        <input class="search__text" type="text" placeholder="Введите текст запроса">
+                        <button class="search__button  seach__button--context"><img class="search__icon  icon icon--wh40" src="assets/images/icons/check.svg" alt="" id="contextSearchButton"></button>
+                        <button class="search__button"><img class="search__icon  icon icon--wh40" src="assets/images/icons/search.svg" alt=""></button>
+                    </div>   
+                </span>             
+                <a href="library.html" class="nav__link">
+                    <img class="icon  icon--wh40  nav__icon" src="/assets/images/icons/user-current.svg" alt="">
+                    <h2 class="nav__text">Библиотека</h2>
+                </a>
+            </nav>
+            <div class="wrapper">
+                <a class="header__user" href="etc.html"></a>                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main -->
+
+<main class="main">
+    <form action="/api/upload" method="POST" enctype="multipart/form-data" class="download">
+        <div class="container download__container">
+            <div class="download__wrapper">
+                <div class="download__logo">
+                    <div class="download__change-wrapper">    
+                    </div>
+                </div>
+            </div>
+            <div class="download__list">
+                <input class="download__info  input" type="text" placeholder="Название аудиозаписи">
+                <input class="download__info  input" type="text" placeholder="Плейлисты" disabled>
+                <input class="download__info  input" type="text" placeholder="Исполнители" disabled>
+                <input class="download__info  input" type="text" placeholder="Альбомы" disabled>
+                <div class="download__button">
+                    <label for="download__open" class="download__open-btn  button2">Открыть файл</label>
+                    <input id="download__open" type="file" accept="audio/*" name="audioUpload">      
+                    <label for="download__change" class="download__change   button2">Сменить обложку</label>
+                    <input id="download__change" type="file" accept="image/*" name="coverUpload">                                    
+                    <input type="submit" class="download__download-btn  button2" id="download_save" value="Сохранить">
+                    <input type="button" class="download__download-btn  button2" id="download_cancel" value="Отменить">
+                </div>
+            </div>
+            <input type="text" class="download__title" name="downloadTitle" style="display: none;">
+            <input type="text" class="download__duration" name="downloadDuration" style="display: none;">
+            <input type="text" class="download__channel" name="downloadChannel" style="display: none;">
+        </div>        
+    </form>
+</main>
+
+<!-- Player -->
+
+<footer class="footer">
+    <div class="queue" id="queue">
+        <div class="container queue__container">
+            <div class="queue__wrapper">
+                <div class="queue__logo" id="queueLogo"></div>
+            </div>
+            <div class="queue__list" id="queueList">
+            </div>
+        </div>        
+    </div>
+    <div class="player">
+        <div class="separator"></div>
+        <div class="progressbar" id="progressBar">
+            <div class="progressbar__current" style="width: 0%;" id="progressCurrent">
+                <div class="progressbar__pointer" id="progressPointer"></div>
+            </div>
+            <div class="time  time--smaller progressbar__time" id="progressBarTime">
+                <span class="time__current" id="progressBarCurrentTime">01:23</span>
+            </div>            
+        </div>        
+        <div class="container">
+            <div class="player__inner">
+                <div class="player__wrapper">
+                    <img class="icon  icon--wh50" id="previous" src="/assets/images/icons/previous.svg" alt="">
+                    <img class="icon  icon--wh80" id="play" style="display: block" src="/assets/images/icons/play.svg" alt="">
+                    <img class="icon  icon--wh80" id="pause" style="display: none" src="/assets/images/icons/pause.svg" alt="">
+                    <img class="icon  icon--wh50" id="next" src="/assets/images/icons/next.svg" alt="">
+                    <div class="time  time--smaller  player__time" id="audioTime">
+                        <span class="time__current" id="audioCurrentTime">01:23</span>/<span class="time__total" id="audioTotalTime">12:10</span>
+                    </div>
+                </div>
+                <div class="audio  audio--hidden-background  player__audio" >
+                    <div class="audio__logo" id="audioLogo"></div>
+                    <div class="audio__info">
+                        <h3 class="audio__name" id="audioName">Название аудио</h3>
+                        <div class="audio__wrapper">
+                            <span class="audio__channel" id="audioChannel">Название канала</span>
+                            <span class="audio__playlist" id="audioPlaylist">Название плейлиста</span>                        
+                        </div>
+                    </div>
+                    <div class="context-menu  player-audio-menu" id="contextMenu">
+                        <img class="icon  icon--wh40  icon--margin-none  audio__icon  context-menu__icon" id="contextMenuIcon" src="/assets/images/icons/etc.svg"alt="">
+                        <div class="context-menu__menu" id="contextMenuMenu" style="top: 0; left: 0">
+                            <div class="context-menu__button  button  context-menu--add-next">
+                                <img class="icon  icon--wh40  button__icon" src="/assets/images/icons/playlist-queue.svg" alt="">
+                                <p class="context-menu__text  button__text">Включить следующим</p>
+                            </div>
+                            <div class="context-menu__button  button  context-menu--add-end">
+                                <img class="icon  icon--wh40  button__icon" src="/assets/images/icons/playlist-play.svg" alt="">
+                                <p class="context-menu__text  button__text">Добавить в очередь</p>
+                            </div>
+                            <div class="context-menu__button  button  context-menu--delete">
+                                <img class="icon  icon--wh40 button__icon" src="/assets/images/icons/delete.svg" alt="">
+                                <p class="context-menu__text button__text">Удалить из очереди</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player__wrapper  wrapper">
+                    <img class="wrapper__icon  icon  icon--margin-none" src="/assets/images/icons/hide.svg">
+                    <div class="wrapper__inner">
+                        <div class="volume" id="volumeWrapper">
+                            <div class="volumebar" id="volumeBar">
+                                <div class="volumebar__current" id="volumeCurrent" style="width: 100%">
+                                    <div class="volumebar__pointer" id="volumePointer"></div>                               
+                                </div>
+                            </div>
+                            <div class="volume__wrapper" id="volumeIconWrapper">
+                                <img class="icon  icon--margin-none" id="volumeFull" style="display: block;" src="/assets/images/icons/volume-full.svg" alt="">
+                                <img class="icon  icon--margin-none" id="volumeSemi" style="display: none;" src="/assets/images/icons/volume-low.svg" alt="">
+                                <img class="icon  icon--margin-none" id="volumeZero" style="display: none;" src="/assets/images/icons/volume-off.svg" alt="">
+                                <img class="icon" id="volumeMute" style="display: none;" src="/assets/images/icons/volume-mute.svg" alt="">                            
+                            </div>
+                        </div>
+                        <img class="icon  icon--no-hover--pink" id="repeatNone" style="display: block" src="/assets/images/icons/repeat.svg" alt="">
+                        <img class="icon  icon--pink" id="repeat" style="display: none" src="/assets/images/icons/repeat.svg" alt="">
+                        <img class="icon  icon--pink" id="repeatOnce" style="display: none" src="/assets/images/icons/repeat-once.svg" alt="">
+                        <img class="icon  icon--no-hover--pink  icon--margin-none" id="random" src="/assets/images/icons/random.svg" alt=""> 
+                        <img class="wrapper__icon2  icon  icon--margin-none" src="/assets/images/icons/hide.svg">                       
+                    </div>
+                </div>
+                <div class="player__wrapper">
+                    <img class="icon  icon--margin-none" id="show" style="display: block" src="/assets/images/icons/show.svg" alt="">
+                    <img class="icon  icon--margin-none" id="hide" style="display: none" src="/assets/images/icons/hide.svg" alt="">
+                </div>
+            </div>
+        </div>        
+    </div>
+</footer>
+
+<div class="modal  modal-main" style="display: none;">
+    <div class="modal__inner">
+        <div class="context-menu__button  button  context-menu--login" id="loginButton">
+            <img class="icon  icon--wh40  button__icon" src="/assets/images/icons/sign-in.svg" alt="">
+            <p class="context-menu__text  button__text">Войти</p>
+        </div>
+        <div class="context-menu__button  button  context-menu--about">
+            <img class="icon  icon--wh40 button__icon" src="/assets/images/icons/help.svg" alt="">
+            <p class="context-menu__text button__text">Наши контакты</p>
+        </div>        
+    </div>
+</div>
+
+<div class="modal  modal-about" style="display: none;">
+    <div class="modal__inner  modal__inner-about">
+        <div class="modal__icon-wrapper">
+            <img class="modal__icon-back  icon  icon--margin-none  icon--white  icon--no-hover--white" src="/assets/images/icons/arrow-left.svg" alt="">
+        </div>
+        <div class="modal__logo-wrapper">
+            <div class="modal__logo" style="background-image: url('/assets/images/about.jpg');"></div>
+        </div>
+        <div class="modal__wrapper">
+            <p class="modal__text">Почта:<br> myaudiolist@gmail.com</p>        
+            <p class="modal__text">Номер:<br> +7 (909) 848 34-01</p>    
+            <p class="modal__text">Название:<br> ООО "МАЙ АУДИО ЛИСТ"</p>    
+            <p class="modal__text">Физический адрес:<br> г. Хабаровск, ул. Ленина, д. 34, оф. 5</p>    
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+
+<script type="module" src="/assets/scripts/download.js"></script>
+<script type="module" src="/assets/scripts/modal.js"></script>
+<script type="module" crossorigin="anonymous" src="/assets/scripts/search.js"></script>
+
+</body>
+</html>

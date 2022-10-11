@@ -1,0 +1,153 @@
+/*
+
+White - #f1ebf5
+Light pink - #f172a1
+Pink - #e64298
+Light purple - #b29bc7
+Purple - #ad2e95
+Blue - #a2c0da
+
+*/ 
+
+body {
+    overflow-x: hidden;
+}
+
+/* Library */
+
+.library {
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px 0;
+    overflow-y: hidden;
+}
+
+.library__inner {
+    display: flex;
+
+    margin-bottom: 15px;
+}
+
+.library__logo-wrapper {
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    position: relative;
+
+    padding: 10px;
+    margin-right: 15px;
+    width: 200px;
+    height: 200px;
+
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.2);
+}
+
+.library__logo {
+    width: 100%;    
+    height: 100%;
+
+    border-radius: 10px;
+    background-color: #af7ac4;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.library__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: min-content;
+}
+
+.library__playlist {
+    margin-bottom: 0px;
+    max-width: 500px;
+
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.library__channel {
+    font-size: 26px;
+    color: #ffffff;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.library__wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.library__on-button {
+    padding: 10px;
+    margin-right: 15px;
+
+    border-radius: 10px;
+    background-color: #ffffff;
+
+    line-height: 1;
+    font-size: 22px;
+    font-weight: 800;
+    color: #af7ac4;
+
+    box-sizing: content-box;
+    transition: color .1s linear;
+
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.2);
+}
+
+.library__on-button:hover {
+    color: #9b59b6;
+    cursor: pointer;
+}
+
+.library__list {
+    width: 100%;
+}
+
+.library__list::-webkit-scrollbar {
+	width: 16px;
+}
+
+.library__list::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #ffffff;
+}
+
+@media (max-width: 500px) {
+    .library__logo-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+    .library__playlist {
+        font-size: 24px;
+    }
+
+    .library__channel {
+        font-size: 22px;
+    }
+
+    .library__on-button {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .library__inner {
+        flex-direction: column;
+    }
+
+    .library__logo-wrapper {
+        margin-bottom: 15px;
+        margin-right: 0;
+        width: 100%;
+    }
+}

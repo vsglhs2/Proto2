@@ -1,0 +1,144 @@
+.message-wrapper {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    translate: -50%;
+    z-index: 999;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px 0px rgba(0,0,0,.2);
+}
+
+.message__icon {
+    width: 24px;
+    height: 24px;
+
+    margin-right: 10px;
+}
+
+.message__icon--blue, .message__icon--blue:hover  {
+    filter: invert(47%) sepia(29%) saturate(1111%) hue-rotate(160deg) brightness(107%) contrast(92%);
+    cursor: auto;
+}
+
+.message__icon--green, .message__icon--green:hover  {
+    filter: invert(67%) sepia(61%) saturate(553%) hue-rotate(89deg) brightness(89%) contrast(84%);
+    cursor: auto;
+}
+
+
+.message__icon--red, .message__icon--red:hover  {
+    filter: invert(34%) sepia(65%) saturate(2920%) hue-rotate(343deg) brightness(99%) contrast(83%);
+    cursor: auto;
+}
+
+.message__icon--yellow, .message__icon--yellow:hover  {
+    filter: invert(78%) sepia(49%) saturate(769%) hue-rotate(357deg) brightness(95%) contrast(99%);
+    cursor: auto;
+}
+
+.message__text {
+    margin-right: 20px;
+
+    font-size: 18px;
+    color: #9b59b6;
+}
+
+.message__text:hover {
+    cursor: auto;
+}
+
+.message__control {
+    margin-right: 10px;
+
+    transition: background-color .1s linear;    
+}
+
+.message__control:last-child {
+    margin-right: 0;
+}
+
+.message__text--blue {
+    color: #3398da;
+}
+
+.message__text--yellow {
+    color: #f1c40f;
+}
+
+.message__text--red {
+    color: #e74c3c;
+}
+
+.message__text--green {
+    color: #2fcb71;
+}
+
+.message__control--blue {
+    background-color: #3398da;
+}
+
+.message__control--blue:hover {
+    background-color: #2f86c1;
+}
+
+.message__control--green {
+    background-color: #2fcb71;
+}
+
+.message__control--green:hover {
+    background-color: #27b463;
+}
+
+.message__control--red {
+    background-color: #e74c3c;
+}
+
+.message__control--red:hover {
+    background-color: #cb4335;
+}
+
+.message__control--yellow {
+    background-color: #f1c40f;
+}
+
+.message__control--yellow:hover {
+    background-color: #d68910;
+}
+
+.message__control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.message__control-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+
+}
+
+.message__control-icon:hover {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+
+}
+
+.controls {
+    margin-left: auto;
+    display: flex;
+}
